@@ -40,4 +40,8 @@ public class GlampingPackageService {
         glampingPackageRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
+
+    public Optional<GlampingPackage> findById(String id) {
+        return glampingPackageRepository.findById(id);
+    }
 }
