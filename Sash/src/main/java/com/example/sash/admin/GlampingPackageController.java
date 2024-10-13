@@ -17,25 +17,25 @@ public class GlampingPackageController {
     private GlampingPackageService glampingPackageService;
 
     // Only Admins should access package management endpoints
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public List<GlampingPackage> getAllPackages() {
         return glampingPackageService.getAllPackages();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public GlampingPackage addPackage(@RequestBody GlampingPackage glampingPackage) {
         return glampingPackageService.addPackage(glampingPackage);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<GlampingPackage> updatePackage(@PathVariable String id, @RequestBody GlampingPackage updatedPackage) {
         return glampingPackageService.updatePackage(id, updatedPackage);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePackage(@PathVariable String id) {
         glampingPackageService.deletePackage(id);
