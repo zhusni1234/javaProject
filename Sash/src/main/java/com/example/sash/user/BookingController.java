@@ -7,7 +7,7 @@ import com.example.sash.service.GlampingPackageService;
 import com.example.sash.service.PaymentService; // Mock payment service
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,14 +27,14 @@ public class BookingController {
     private PaymentService paymentService; // Injecting payment service
 
     // View all bookings for authenticated users
-    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     @GetMapping
     public List<Booking> getAllBookings() {
         return bookingService.getAllBookings();
     }
 
     // Step 1: User selects a glamping package, views price, and proceeds with booking
-    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     @PostMapping("/book")
     public ResponseEntity<String> bookGlampingPackage(
         @RequestParam String packageId,
@@ -60,7 +60,7 @@ public class BookingController {
     }
 
     // Step 2: User proceeds to make payment
-    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     @PostMapping("/pay")
     public ResponseEntity<String> makePayment(
         @RequestParam String packageId,

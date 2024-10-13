@@ -10,15 +10,18 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // Disable CSRF and enable CORS
+        //Disable CSRF and enable CORS
         http.csrf().disable()
-            .cors() // Enable CORS with settings from WebConfig
-            .and()
+            .cors() ;// Enable CORS with settings from WebConfig
+            /* .and()
             .authorizeHttpRequests((authz) -> authz
+            .requestMatchers("/admin/signin").permitAll()
+            .requestMatchers("/admin/glamping-packages").permitAll()
                 .requestMatchers("/admin/**").authenticated()  // Secure admin routes
                 .anyRequest().permitAll()  // Allow other requests
-            );
+            );*/
 
         return http.build();
     }
+
 }
